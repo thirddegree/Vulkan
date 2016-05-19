@@ -22,38 +22,23 @@
 *    SOFTWARE.
 */
 
-#include <example.h>
+#pragma once
 
-TriangleExample::TriangleExample()
-    : Application("Vulkan Example - Triangle")
+#include <application.h>
+
+class ModelExample : public Application
 {
+public:
+    ModelExample();
 
-}
+    ~ModelExample();
 
-TriangleExample::~TriangleExample()
-{
+protected:
+    bool Initialize()       override;
+    void Update(float dt)   override;
+    void Render(float dt)   override;
+    void ShutDown()         override;
 
-}
+private:
 
-bool TriangleExample::Initialize()
-{
-    if(!Application::Initialize())
-        return false;
-
-    return true;
-}
-
-void TriangleExample::Update(float dt)
-{
-
-}
-
-void TriangleExample::Render(float dt)
-{
-
-}
-
-void TriangleExample::ShutDown()
-{
-
-}
+};

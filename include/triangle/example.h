@@ -24,12 +24,21 @@
 
 #pragma once
 
-class TriangleExample
+#include <application.h>
+
+class TriangleExample : public Application
 {
-private:
+public:
     TriangleExample();
 
     ~TriangleExample();
 
+protected:
+    bool Initialize()       override;
+    void Update(float dt)   override;
+    void Render(float dt)   override;
+    void ShutDown()         override;
+
 private:
+
 };

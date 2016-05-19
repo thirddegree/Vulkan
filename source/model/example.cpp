@@ -24,18 +24,18 @@
 
 #include <example.h>
 
-TriangleExample::TriangleExample()
-    : Application("Vulkan Example - Triangle")
+ModelExample::ModelExample()
+    : Application("Vulkan Example - 3D Model Rendering")
 {
 
 }
 
-TriangleExample::~TriangleExample()
+ModelExample::~ModelExample()
 {
 
 }
 
-bool TriangleExample::Initialize()
+bool ModelExample::Initialize()
 {
     if(!Application::Initialize())
         return false;
@@ -43,17 +43,17 @@ bool TriangleExample::Initialize()
     return true;
 }
 
-void TriangleExample::Update(float dt)
+void ModelExample::Update(float dt)
 {
 
 }
 
-void TriangleExample::Render(float dt)
+void ModelExample::Render(float dt)
 {
 
 }
 
-void TriangleExample::ShutDown()
+void ModelExample::ShutDown()
 {
 
 }

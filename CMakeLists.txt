@@ -23,14 +23,15 @@ endif()
 
 # Function for building single example
 function(BuildExample EXAMPLE_NAME)
-    include_directories("include/${EXAMPLE_NAME}")
     file(GLOB EXAMPLE_SRC ${COMMON_SRC} source/${EXAMPLE_NAME}/*.cpp)
     if(WIN32)
         add_executable(${EXAMPLE_NAME} WIN32 ${EXAMPLE_SRC})
+        target_include_directories(${EXAMPLE_NAME} PUBLIC "include/${EXAMPLE_NAME}")
         target_link_libraries(${EXAMPLE_NAME} ${VULKAN_LIB})
     else()
         add_executable(${EXAMPLE_NAME} ${EXAMPLE_SRC})
-        target_link_libraries(${EXAMPLE_NAME} ${CMAKE_THREAD_LIBS_INIT})
+        target_include_directories(${EXAMPLE_NAME} PUBLIC "include/${EXAMPLE_NAME}")
+        target_link_libraries(${EXAMPLE_NAME} ${SDL2_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
     endif()
 endfunction()
 
@@ -44,6 +45,7 @@ endfunction()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "bin/")
 
 set(EXAMPLES
-    triangle)
+    triangle
+    model)
 
 BuildExamples()

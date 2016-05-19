@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-    TriangleExample example;
+    ModelExample example;
 
     return example.Run();
 }
