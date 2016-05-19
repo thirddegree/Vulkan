@@ -1,0 +1,3 @@
+[submodule "ExampleCommon"]
+	path = ExampleCommon
+	url = https://github.com/thirddegree/ExampleCommon
