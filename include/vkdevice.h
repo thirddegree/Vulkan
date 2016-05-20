@@ -24,22 +24,17 @@
 
 #pragma once
 
-#include <application.h>
-#include <vkappinstance.h>
+#include <platform.h>
+#include <vulkan/vulkan.h>
+#include <vector>
 
-class TriangleExample : public Application
+class VKDevice
 {
 public:
-    TriangleExample();
-
-    ~TriangleExample();
-
-protected:
-    bool Initialize()       override;
-    void Update(float dt)   override;
-    void Render(float dt)   override;
-    void ShutDown()         override;
+    VKDevice();
 
 private:
-    VKAppInstance m_instance;
+    VkDevice                                    m_device;
+    std::vector<VkPhysicalDevice>               m_gpus;
+    std::vector<VkPhysicalDeviceFeatures>       m_gpuFeatures;
 };

@@ -24,22 +24,39 @@
 
 #pragma once
 
-#include <application.h>
-#include <vkappinstance.h>
+#include <platform.h>
+#include <vulkan/vulkan.h>
+#include <vector>
+#include <string>
 
-class TriangleExample : public Application
+extern PFN_vkGetPhysicalDeviceSurfaceSupportKHR 
+    fpGetPhysicalDeviceSurfaceSupportKHR;
+extern PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR
+    fpGetPhysicalDeviceSurfaceCapabilitiesKHR;
+extern PFN_vkGetPhysicalDeviceSurfaceFormatsKHR
+    fpGetPhysicalDeviceSurfaceFormatsKHR;
+extern PFN_vkGetPhysicalDeviceSurfacePresentModesKHR
+    fpGetPhysicalDeviceSurfacePresentModesKHR;
+extern PFN_vkCreateDebugReportCallbackEXT
+    fpCreateDebugReportCallback; 
+
+class VKAppInstance
 {
 public:
-    TriangleExample();
+    VKAppInstance();
 
-    ~TriangleExample();
+    ~VKAppInstance();
 
-protected:
-    bool Initialize()       override;
-    void Update(float dt)   override;
-    void Render(float dt)   override;
-    void ShutDown()         override;
+    bool Initialize(std::string title);
+
+    const std::vector<const char*>& EnabledLayerNames() const;
+    const std::vector<const char*>& EnabledExtNames() const;
 
 private:
-    VKAppInstance m_instance;
+    VkInstance                               m_instance;
+    std::vector<std::vector<const char*>>    m_instanceLayerCollection;
+    std::vector<const char*>                 m_enabledLayerNames;
+    std::vector<const char*>                 m_enabledExtNames;
+
+    bool CheckInstanceExtensions();
 };

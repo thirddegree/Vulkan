@@ -37,7 +37,12 @@ TriangleExample::~TriangleExample()
 
 bool TriangleExample::Initialize()
 {
+    //Initialize base application (SDL Window)
     if(!Application::Initialize())
+        return false;
+
+    //Initialize Vulkan application instance
+    if(!m_instance.Initialize(m_title))
         return false;
 
     return true;
