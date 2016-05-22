@@ -46,6 +46,8 @@ VKAppInstance::VKAppInstance()
         "VK_LAYER_LUNARG_standard_validation", "VK_LAYER_LUNARG_swapchain",
         "VK_LAYER_LUNARG_device_limits", "VK_LAYER_LUNARG_image"
     });
+
+    m_instance = nullptr;
 }
 
 VKAppInstance::~VKAppInstance()

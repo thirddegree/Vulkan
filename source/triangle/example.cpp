@@ -42,8 +42,8 @@ bool TriangleExample::Initialize()
         return false;
 
     //Initialize Vulkan application instance
-    if(!m_instance.Initialize(m_title))
-        return false;
+    /*if(!m_instance.Initialize(m_title))
+        return false;*/
 
     return true;
 }
