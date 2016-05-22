@@ -95,12 +95,14 @@ bool VKAppInstance::Initialize(std::string title)
         cInfo.pApplicationInfo = &info;
         cInfo.enabledLayerCount = static_cast<uint32_t>(layers.size());
         cInfo.ppEnabledLayerNames = &layers[0];
-        //cInfo.enabledExtensionCount
-        //cInfo.ppEnabledExtensionNames
+        cInfo.enabledExtensionCount = m_enabledExtNames.size();
+        cInfo.ppEnabledExtensionNames = &m_enabledExtNames[0];
 
         res = vkCreateInstance(&cInfo, nullptr, &m_instance);
         if(res == VK_SUCCESS)
             break;
+        else
+            std::cerr << "Failed to create Vulkan instance." << std::endl;
     }
 
     return true;
